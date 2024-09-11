@@ -1,0 +1,119 @@
+.chatbot-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./assets/fundo_vetor.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+  
+  .chat-window {
+    width: 400px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+  }
+
+  .user-window {
+    width: auto;
+    height: auto;
+  }
+  .bot-window {
+    width: auto;
+    height: auto;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    border:#0056b3 2px solid;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /*overflow-y: scroll;*/
+    margin-bottom: 10px;
+  }
+  .clipper-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    justify-content: right;
+    background-color: rgba(170, 179, 255, 0.8);
+    border-radius: 10%;
+  }
+  .bot-info {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    justify-content: right;
+    width: 400px;
+    height: auto;
+    border: #0056b3 2px solid;
+    border-radius: 10px;
+   padding: 20px;
+    display: flex;
+    /*overflow-y: scroll;*/
+    margin-bottom: 10px;
+  }
+
+  .message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border:#0056b3 2px solid;
+
+  }
+  
+  .message.user {
+    background-color: #daf8cb;
+    align-self: flex-end;
+  }
+  
+  .message.bot {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+  }
+
+  .bot-image {
+    width: 250px;
+  }
+
+  .chat-input {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .send-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .reset-button {
+    padding: 10px 20px;
+    background-color: #00b909;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .send-button:hover {
+    background-color: #0056b3;
+  }
+
+  .reset-button:hover {
+    background-color: #1cee00;
+  }
+  
