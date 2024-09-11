@@ -3,6 +3,8 @@ import axios from "axios";
 import "./Chatbot.css"; // Para estilizar o chatbot
 import botImage from "./assets/Clippit.png";
 
+const apiServer = process.env.REACT_APP_API_SERVER;
+
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
@@ -16,7 +18,7 @@ const Chatbot = () => {
 
     try {
       // Enviar pergunta para a API
-      const response = await axios.post("http://localhost:3001/attendant", {
+      const response = await axios.post(apiServer + "/attendant", {
         question: userInput,
       });
 
