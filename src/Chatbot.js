@@ -5,9 +5,28 @@ import botImage from "./assets/Clippit.png";
 
 const apiServer = process.env.REACT_APP_API_SERVER;
 
-const Chatbot = () => {
+const Chatbot = ({ dataFolder }) => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
+  const [userLogin, setUserLogin] = useState("");
+
+  const handleLoginUserInput = async () => {
+    if (!userLogin.trim()) return;
+
+    try {
+      // Enviar pergunta para a API
+      const response = await axios.post(apiServer + "/login_" + dataFolder, {
+        userLogin: userLogin,
+      });
+
+            // Adicionar a resposta do chatbot ao chat
+            const botMessage = { sender: "bot", text: response.data };
+            setMessages([...messages, botMessage]);
+
+    } catch (error) {
+      console.error("Erro ao se comunicar com a API:", error);
+    }
+  };
 
   const handleUserInput = async () => {
     if (!userInput.trim()) return;
@@ -20,6 +39,7 @@ const Chatbot = () => {
       // Enviar pergunta para a API
       const response = await axios.post(apiServer + "/attendant", {
         question: userInput,
+        data_folder: dataFolder,
       });
 
       // Adicionar a resposta do chatbot ao chat
@@ -48,7 +68,11 @@ const Chatbot = () => {
         <div className="chat-window">
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.sender}`}>
-              {message.text}
+              {message.sender === "bot" ? (
+              <div dangerouslySetInnerHTML={{ __html: message.text }} />
+            ) : (
+              <p>{message.text}</p>
+            )}
             </div>
           ))}
         </div>
@@ -73,6 +97,21 @@ const Chatbot = () => {
             <button onClick={resetConversation} className="reset-button">Reiniciar</button>
           </div>
         </div>
+        {dataFolder === "tamojunto" && (
+          <div className="alianca-info">
+            <input
+              type="text"
+              value={userLogin}
+              onChange={(e) => setUserLogin(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Digite seu email..."
+              className="chat-input"
+            />
+            <button onClick={handleLoginUserInput} className="send-button">
+              Entrar
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
