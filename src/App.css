@@ -41,3 +41,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* Mobile Styles */
+body {
+  font-size: 14px;
+}
+
+/* Tablets and small desktops */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Larger desktops */
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+}

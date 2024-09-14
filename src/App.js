@@ -16,6 +16,7 @@ const App = () => {
     <div className="app" style={{ backgroundImage: `url(./assets/${PocOwner}.png)`, backgroundSize: "cover" }}>
       <Chatbot dataFolder={PocOwner} />
     </div>
+    
   );
 };
 
