@@ -69,10 +69,10 @@ const Chatbot = ({ dataFolder }) => {
           {messages.map((message, index) => (
             <div key={index} className={`message ${message.sender}`}>
               {message.sender === "bot" ? (
-              <div dangerouslySetInnerHTML={{ __html: message.text }} />
-            ) : (
-              <p>{message.text}</p>
-            )}
+                <div dangerouslySetInnerHTML={{ __html: message.text }} />
+              ) : (
+                <p>{message.text}</p>
+              )}
             </div>
           ))}
         </div>
@@ -114,7 +114,7 @@ const Chatbot = ({ dataFolder }) => {
         )}
       </div>
     </div>
-  );
+  );  
 };
 
 export default Chatbot;
